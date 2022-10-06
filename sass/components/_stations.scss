@@ -3,4 +3,13 @@
 .station {
 	@include mixins.displayFlex(column);
 	padding: 6.5rem 2rem;
+	&:first-child {
+		padding: 2rem 2rem 6.5rem 0;
+	}
+}
+
+.station:nth-child(even) {
+	@include mixins.linearGradientDarken;
+	background-color: grey;
+	color: white;
 }
