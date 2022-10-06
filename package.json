@@ -11,5 +11,8 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "scrollama": "^3.2.0"
   }
 }
