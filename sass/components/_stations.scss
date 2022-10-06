@@ -1,15 +1,19 @@
 @use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .station {
-	@include mixins.displayFlex(column);
+	@include mixins.displayFlex(column, center, center);
 	padding: 6.5rem 2rem;
-	&:first-child {
-		padding: 2rem 2rem 6.5rem 0;
-	}
+	height: fit-content;
+	margin-bottom: 30rem;
+	border-radius: 7px;
+	@include mixins.linearGradientDarken;
+	background-color: variables.$color-primary;
+	color: white;
+	font-size: 1.4em;
 }
 
 .station:nth-child(even) {
 	@include mixins.linearGradientDarken;
 	background-color: grey;
-	color: white;
 }

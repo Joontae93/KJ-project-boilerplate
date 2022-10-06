@@ -30,12 +30,17 @@ main {
 			top: 10%;
 		}
 		.image {
+			transition: all 0.3s ease;
 			position: sticky;
-			top: 10%;
-			background-color: bisque;
-			padding: 4rem;
+			top: 20%;
+			max-width: 100%;
 			aspect-ratio: 4 / 3;
 			margin: 2rem auto;
+			object-fit: cover;
+			object-position: center;
+			transform-origin: center;
+			transform: rotateY(0);
+			box-shadow: 2px 2px 4px 4px rgba(black, 0.35);
 		}
 	}
 }
