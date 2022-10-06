@@ -20,15 +20,20 @@ body {
 header,
 main,
 footer {
-	@include mixins.displayFlex(column, center, center);
 	padding: 6.5rem 0;
 }
 header {
 	background-color: variables.$color-primary;
 	@include mixins.linearGradientDarken(165deg);
 	color: white;
+	@include mixins.displayFlex(column, center, center);
 }
 footer {
 	@extend header;
 	background-color: variables.$color-grey;
+}
+main {
+	width: 88%;
+	max-width: 1200px;
+	margin: 0 auto;
 }
