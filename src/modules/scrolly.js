@@ -15,6 +15,20 @@ export function scrollytelling() {
 		prayerWalk();
 	});
 }
+const urls = [
+	'https://firstchurch.net/wp-content/uploads/2022/10/P1020081-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/P1020081-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/P1020081-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/P1020081-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/fellowship-hall-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/kids-checkin-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/youth-gather-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/classrooms-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/church-office-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/P1020081-scaled.jpg',
+	'https://firstchurch.net/wp-content/uploads/2022/10/sanctuary-scaled.jpg',
+];
+/** Set Up Scrollama */
 function prayerWalk() {
 	const scroller = scrollama();
 	scroller.setup({
@@ -26,13 +40,16 @@ function prayerWalk() {
 	scroller.onStepProgress(displayStation);
 	scroller.onStepExit(hideStation);
 }
+
+/** Displays Prayer Stations
+ * @param {object} data the Scrollama Info
+ */
 function displayStation(data) {
 	const stations = select('.station', true);
-	const images = select('.image', true);
-	images.forEach((el) => (el.style.opacity = 0));
+	const image = select('.image');
 	stations.forEach((el, i) => {
 		if (i === data.index) {
-			const image = images[i];
+			image.src = urls[i];
 			image.style.opacity = 1;
 			image.style.transform = `rotateY(${
 				(parseInt(data.progress * 100) - 30) * 0.4
@@ -40,7 +57,9 @@ function displayStation(data) {
 		}
 	});
 }
-
+/** Hides Prayer Stations on Exit
+ * @param {object} data the Scrollama Info
+ */
 function hideStation(data) {
 	const stations = select('.station', true);
 	const image = select('.image');
