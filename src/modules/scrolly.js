@@ -6,6 +6,7 @@ export function scrollytelling() {
 	const button = select('.btn');
 	main.style.opacity = 0;
 	document.addEventListener('click', (ev) => {
+		if (ev.target != button) return;
 		main.style.opacity = 1;
 		button.style.opacity = 0;
 		button.style.display = 'none';
