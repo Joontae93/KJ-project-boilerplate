@@ -2,8 +2,14 @@ import scrollama from 'scrollama';
 import { select } from './utilities';
 
 export function scrollytelling() {
+	const main = select('main');
+	const button = select('.btn');
+	main.style.opacity = 0;
 	document.addEventListener('click', (ev) => {
-		console.log('Click!');
+		main.style.opacity = 1;
+		button.style.opacity = 0;
+		button.style.display = 'none';
+		prayerWalk();
 	});
 }
 function prayerWalk() {

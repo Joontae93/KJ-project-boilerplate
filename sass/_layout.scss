@@ -1,24 +1,39 @@
 @use './abstracts/mixins';
+#app {
+	@include mixins.displayFlex(column, center, center);
+	// padding: 6.5rem 0;
+}
 main {
+	transition: opacity 0.3s ease;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	@include mixins.respond(Tablet) {
+		grid-template-columns: 1fr;
+	}
 	position: relative;
 	gap: 2rem;
 
 	article {
 		@include mixins.displayFlex(column, flex-start, stretch);
 		grid-column: 1 / 2;
+		@include mixins.respond(Tablet) {
+			order: 2;
+		}
 	}
 	figure {
 		grid-column: 2 / 3;
+		border-radius: 1rem;
+		@include mixins.respond(Tablet) {
+			grid-column: unset;
+			order: 1;
+			position: sticky;
+			top: 10%;
+		}
 		.image {
 			position: sticky;
 			top: 10%;
-			bottom: 10%;
-			border-radius: 1rem;
 			background-color: bisque;
 			padding: 4rem;
-			max-width: 80%;
 			aspect-ratio: 4 / 3;
 			margin: 2rem auto;
 		}
