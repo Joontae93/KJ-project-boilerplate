@@ -1,0 +1,6 @@
+@use '../abstracts/mixins';
+
+.station {
+	@include mixins.displayFlex(column);
+	padding: 6.5rem 2rem;
+}
